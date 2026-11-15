@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>27</maven.compiler.source>
-    <maven.compiler.target>27</maven.compiler.target>
+    <maven.compiler.source>26</maven.compiler.source>
+    <maven.compiler.target>26</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -49,7 +49,7 @@
          <artifactId>exec-maven-plugin</artifactId>
          <version>3.6.4</version>
          <configuration>
-            <mainClass>com.exemplo.App</mainClass>
+            <mainClass>com.exemplo.Main</mainClass>
          </configuration>
               
      </plugin>

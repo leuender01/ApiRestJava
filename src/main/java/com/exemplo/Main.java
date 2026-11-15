@@ -2,14 +2,15 @@ package com.exemplo;
 
 import com.exemplo.dtos.EnderecoDto;
 import com.exemplo.exeption.StatusCode400Exeption;
+import com.exemplo.controler.ApiRest;
 
-public class App 
+public class Main 
 {
     public static void main( String[] args ) 
     {
         ApiRest apiRest = new ApiRest();
         try {
-            EnderecoDto enderecoDto = apiRest.request("74463770");
+            EnderecoDto enderecoDto = apiRest.request("---------");
             System.out.println(enderecoDto);
         } catch (StatusCode400Exeption e) {
             System.out.println("\033[31;1m" + e.getMessage() + "\033[0m");
