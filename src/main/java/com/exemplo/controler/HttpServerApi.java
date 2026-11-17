@@ -4,18 +4,23 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import com.sun.net.httpserver.HttpServer;
-import com.exemplo.controler.endpoints.RotaRoot;
+
+import io.github.cdimascio.dotenv.Dotenv;
+
+import com.exemplo.controler.endpoints.rotaRoot.RotaRoot;
 
 public class HttpServerApi
 {
     private int port;
     private HttpServer server;
-    public HttpServerApi(int port) throws IOException
+    public HttpServerApi() throws IOException
     {
-        this.server = HttpServer.create(new InetSocketAddress(port), 0);
-        this.server.createContext("/", new RotaRoot());
-        this.server.setExecutor(null);
-        this.port = port;
+        Dotenv dotenv = Dotenv.configure().load();
+        int portEnv = Integer.valueOf( dotenv.get("PORT") );
+        server = HttpServer.create(new InetSocketAddress(portEnv), 0);
+        server.createContext("/", new RotaRoot());
+        server.setExecutor(null);
+        this.port = portEnv;
     }
     public void execult()
     {
